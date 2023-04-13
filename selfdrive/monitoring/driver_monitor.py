@@ -21,15 +21,18 @@ class DRIVER_MONITOR_SETTINGS():
     # ref (page15-16): https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:42018X1947&rid=2
     self._AWARENESS_TIME = 30. # passive wheeltouch total timeout
     self._AWARENESS_PRE_TIME_TILL_TERMINAL = 15.
-    self._AWARENESS_PROMPT_TIME_TILL_TERMINAL = 6.
+    # Changed from 6 to 3 
+    self._AWARENESS_PROMPT_TIME_TILL_TERMINAL = 3.
     self._DISTRACTED_TIME = 11. # active monitoring total timeout
     self._DISTRACTED_PRE_TIME_TILL_TERMINAL = 8.
-    self._DISTRACTED_PROMPT_TIME_TILL_TERMINAL = 6.
+    # Changed from 6 to 3
+    self._DISTRACTED_PROMPT_TIME_TILL_TERMINAL = 3.
 
     self._FACE_THRESHOLD = 0.7
     self._EYE_THRESHOLD = 0.65
     self._SG_THRESHOLD = 0.9
-    self._BLINK_THRESHOLD = 0.895
+    # Lowered the blin threshold 
+    self._BLINK_THRESHOLD = 0.8
 
     self._EE_THRESH11 = 0.275
     self._EE_THRESH12 = 5.5
@@ -41,16 +44,22 @@ class DRIVER_MONITOR_SETTINGS():
     self._POSE_PITCH_THRESHOLD = 0.3133
     self._POSE_PITCH_THRESHOLD_SLACK = 0.3237
     self._POSE_PITCH_THRESHOLD_STRICT = self._POSE_PITCH_THRESHOLD
-    self._POSE_YAW_THRESHOLD = 0.4020
+    
+    # DECREASED THE YAW THRESHOLD AND THE PITCH THRESHOLD
+    self._POSE_YAW_THRESHOLD = 0.41
     self._POSE_YAW_THRESHOLD_SLACK = 0.5042
     self._POSE_YAW_THRESHOLD_STRICT = self._POSE_YAW_THRESHOLD
     self._PITCH_NATURAL_OFFSET = 0.029 # initial value before offset is learned
     self._PITCH_NATURAL_THRESHOLD = 0.449
     self._YAW_NATURAL_OFFSET = 0.097 # initial value before offset is learned
-    self._PITCH_MAX_OFFSET = 0.124
-    self._PITCH_MIN_OFFSET = -0.0881
-    self._YAW_MAX_OFFSET = 0.289
-    self._YAW_MIN_OFFSET = -0.0246
+    # Increase the max offset 
+    self._PITCH_MAX_OFFSET = 0.14
+    # Decreased the min offset 
+    self._PITCH_MIN_OFFSET = -0.01
+    # Increase the max offset 
+    self._YAW_MAX_OFFSET = 0.30
+    # Decreased the min offset
+    self._YAW_MIN_OFFSET = -0.028
 
     self._POSESTD_THRESHOLD = 0.3
     self._HI_STD_FALLBACK_TIME = int(10  / self._DT_DMON)  # fall back to wheel touch if model is uncertain for 10s
