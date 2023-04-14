@@ -20,10 +20,13 @@ class DRIVER_MONITOR_SETTINGS():
     self._DT_DMON = DT_DMON
     # ref (page15-16): https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:42018X1947&rid=2
     self._AWARENESS_TIME = 30. # passive wheeltouch total timeout
-    self._AWARENESS_PRE_TIME_TILL_TERMINAL = 15.
+    #changed from 15 to 5
+    self._AWARENESS_PRE_TIME_TILL_TERMINAL = 5.
     # Changed from 6 to 3 
     self._AWARENESS_PROMPT_TIME_TILL_TERMINAL = 3.
-    self._DISTRACTED_TIME = 11. # active monitoring total timeout
+    #changed from 11 to 5
+    self._DISTRACTED_TIME = 5. # active monitoring total timeout
+    #changed from 8 to 4
     self._DISTRACTED_PRE_TIME_TILL_TERMINAL = 8.
     # Changed from 6 to 3
     self._DISTRACTED_PROMPT_TIME_TILL_TERMINAL = 3.
@@ -150,7 +153,8 @@ class DriverStatus():
     self.distracted_types = []
     self.driver_distracted = False
     self.driver_distraction_filter = FirstOrderFilter(0., self.settings._DISTRACTED_FILTER_TS, self.settings._DT_DMON)
-    self.wheel_on_right = False
+    #changed to right hand drive
+    self.wheel_on_right = True
     self.wheel_on_right_last = None
     self.wheel_on_right_default = rhd_saved
     self.face_detected = False
